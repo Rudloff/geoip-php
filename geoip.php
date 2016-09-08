@@ -11,12 +11,15 @@
  *
  * @link     https://rudloff.pro/divers/geoip/
  * */
-$record = geoip_record_by_name($_SERVER['REMOTE_ADDR']);
-echo json_encode(
-    [
-        'location' => [
-            'lat' => $record['latitude'],
-            'lng' => $record['longitude'],
-        ], 'accuracy' => 40000,
-    ]
-);
+require_once __DIR__.'/vendor/autoload.php';
+if (isset($_SERVER['REMOTE_ADDR'])) {
+    $record = geoip_record_by_name($_SERVER['REMOTE_ADDR']);
+    echo json_encode(
+        [
+            'location' => [
+                'lat' => $record['latitude'],
+                'lng' => $record['longitude'],
+            ], 'accuracy' => 40000,
+        ]
+    );
+}
