@@ -1,0 +1,8 @@
+{
+    "name": "rudloff/geoip-php",
+    "description": "Basic geolocation API compatible with Firefox",
+    "license": "LGPL-3.0",
+    "require": {
+        "ext-geoip": "*"
+    }
+}
